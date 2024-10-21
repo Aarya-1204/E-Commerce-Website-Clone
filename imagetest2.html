@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Images Side by Side</title>
+  <style>
+    /* Style for the link text */
+    #forhim {
+      position: relative;
+      width: 95%; /* Adjust as needed */
+      overflow: hidden;
+    }
+    #forher {
+      position: relative;
+      width: 95%; /* Adjust as needed */
+      overflow: hidden;
+    }
+
+    #forhim img {
+      width: 100%;
+      height: auto;
+      filter: brightness(70%); /* Apply a black tint (70% brightness) */
+      transition: filter 0.3s ease; /* Smooth transition for the black tint */
+    }
+    #forher img {
+      width: 100%;
+      height: auto;
+      filter: brightness(70%); /* Apply a black tint (70% brightness) */
+      transition: filter 0.3s ease; /* Smooth transition for the black tint */
+    }
+
+    .link-text a {
+      color: white; /* Set link text color to white */
+      text-decoration: none; /* Remove underline for links */
+      transition: font-size 0.3s ease; /* Smooth transition for font size */
+    }
+
+    .link-text a:hover {
+      text-decoration: underline; /* Underline links on hover */
+    }
+
+    .link-text a:visited {
+      color: white; /* Set visited link color to white */
+    }
+
+    .link-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      text-align: center;
+      z-index: 2;
+      opacity: 1; /* Show the link text */
+      transition: font-size 0.3s ease; /* Smooth transition for font size */
+    }
+
+    #forhim:hover .link-text {
+      font-size: 20px; /* Enlarge the font size on hover */
+    }
+    #forher:hover .link-text {
+      font-size: 20px; /* Enlarge the font size on hover */
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>
+        <div class="image-container" id="forhim">
+          <img src="for him.webp" id="forhim">
+          <div class="link-text">
+            <a href="#">FOR HIM</a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="image-container" id="forher">
+          <img src="for her.webp" id="forher">
+          <div class="link-text">
+            <a href="#">FOR HER</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

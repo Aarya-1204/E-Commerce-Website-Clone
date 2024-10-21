@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ISAK Fragrances</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    html,body {
+      margin: 0;
+      padding: 0;
+    }
+    #carouselItem {
+      height: 95vh; /*Height of the carousel*/
+      background-size: cover;
+    }
+    h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat' , sans-serif;
+    }
+    #divider {
+      text-align: center; 
+      font-size: 24px;
+      padding-top: 40px;
+    }
+
+    #cardfixed {
+    width: 330px;
+    margin: 10px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    text-align: center; 
+  }
+  #cardfixed img {
+    transition: transform 0.5s ease;
+    max-width: 100%; /* Ensure image doesn't overflow the card */
+    height: 100%;
+    object-fit: cover;
+  }
+  #cardfixed:hover img {
+    transform: scale(1.2);
+  }
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    opacity: 1; /* Always visible */
+  }
+  #cardfixed .btn {
+      border-radius: 1px;
+      width: 70%;
+      font-size: 16px;
+      font-weight:300;
+      margin-top: 30px;
+     
+  }
+  #cardfixed .btn:hover {
+      background-color: transparent;
+      color: white;
+  }
+  .card-title {
+      margin-top:50%;
+      
+  }
+  .card-title,
+  #cardfixed .btn {
+    pointer-events: auto; /* Make text and button clickable */
+  }
+  .underline {
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 7px;
+  }
+
+  /*  Card carousel */
+  #cardslider img {
+        width: 300px;
+        height: 300px;
+        
+     }
+    img .no-hover-zoom:hover img {
+    transform: none;
+     }
+    
+     #cardslider {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        align-items: center;
+        padding-left: 50px;
+        padding-right: 50px;
+        border: none;
+     }
+     #cardbuttonprev {
+  background-color: grey;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#cardbuttonnext {
+  background-color: grey;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#contentcard {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: small;
+  text-wrap: wrap;
+ 
+}
+#cardsbody {
+    margin-top: 30px;
+}
+.view-all-btn {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .view-all-btn:hover {
+      opacity: 0.8;
+    }
+   
+  </style>
+</head>
+<body>
+    <!--Navigation bar-->
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="logo.avif" width="45%"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mx-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text white" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+     </div>
+    </nav>
+      
+    <div id="carouselArrows" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselArrows" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselArrows" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselArrows" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#carouselArrows" data-bs-slide-to="3"></button>
+           
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="carouselItem" style="background-image: url(s1.jpg);">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First Slide</h5>
+            <p>Caption</p>
+          </div>        
+        </div>
+        <div class="carousel-item"  id="carouselItem" style="background-image: url(s2.webp);">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second Slide</h5>
+          </div>
+        </div>
+        <div class="carousel-item"  id="carouselItem" style="background-image: url(s3.webp);">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third Slide</h5>
+          </div>
+        </div>
+        <div class="carousel-item"  id="carouselItem" style="background-image: url(s4.webp);">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Fourth Slide</h5>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselArrows" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselArrows" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+      <!--Cards-->
+      <h4 id="divider">SHOP BY CATEGORY</h4>
+      <table align="center">
+        <tr>
+            <td>
+                <div class="card" id="cardfixed">
+                    <img src="c1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title" id="cardTitle"  style="padding-right: 102px;">PERFUMES</h5>
+                       
+                        <a href="#" class="btn btn-light">VIEW MORE</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card" id="cardfixed">
+                    <img src="c2main.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title" id="cardTitle" style="padding-right: 135px;">ATTARS</h5>
+                       
+                        <a href="#" class="btn btn-light">VIEW MORE</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card" id="cardfixed">
+                    <img src="c3.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title" id="cardTitle" style="padding-right: 10px;">HOME FRAGRANCES</h5>
+                       
+                        <a href="#" class="btn btn-light">VIEW MORE</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card" id="cardfixed">
+                    <img src="c4main.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title" id="cardTitle" style="padding-right: 10px;">MULTI PERFUME PACKS</h5>
+                       
+                        <a href="#" class="btn btn-light">VIEW MORE</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+      </table>
+      <br><hr><br>
+      <h2 style="text-align: center; font-size: smaller; color: rgba(29, 26, 26, 0.773);">FEATURED COLLECTION</h2>
+      <h2 style="text-align:center; font-size: 26px; padding-top: 20px; padding-bottom: 4px;"><span class="underline">TRENDING</span> &nbsp;&nbsp;COLLECTION</h2>
+      <!--Slider cards-->
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+                <div class="card" id="cardslider">
+                  <img src="p1.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                    <p class="card-text" id="contentcard">FIRST RAIN ATTAR
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.390.00</span></p>
+                        
+                    
+                  </div>
+                </div>
+                <div class="card" id="cardslider">
+                  <img src="p2.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                    <p class="card-text"id="contentcard">DISCOVERY PACK
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.750.00</span></p>
+                        
+                    
+                  </div>
+                </div>
+                <div class="card" id="cardslider">
+                  <img src="p3.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                   
+                    <p class="card-text"id="contentcard">DISCOVERY PACK ATTARS
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.1500.00</span></p>
+                        
+                  </div>
+                </div>
+                <div class="card" id="cardslider">
+                    <img src="p4.webp" class="card-img-top">
+                    <div id="cardsbody">
+                       <p class="card-text"id="contentcard">THE OCCASION SERIES
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.1500.00</span></p>
+                        
+                        
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+                <div class="card" id="cardslider">
+                  <img src="p5.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                  
+                    <p class="card-text"id="contentcard">ABOVE & BEYOND
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.800.00</span></p>
+                        
+                    
+                  </div>
+                </div>
+                <div class="card" id="cardslider" >
+                  <img src="p6.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                   
+                    <p class="card-text" id="contentcard">EDGE OF DREAMS
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.800.00</span></p>
+                        
+                    
+                  </div>
+                </div>
+                <div class="card" id="cardslider">
+                  <img src="p7.webp" class="card-img-top" alt="...">
+                  <div id="cardsbody">
+                    
+                    <p class="card-text"id="contentcard">COSMIC DANCE
+                        <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;Rs.800.00</span></p>
+                        
+                    
+                  </div>
+                </div>
+                <div class="card" id="cardslider">
+                    <img src="p8.webp" class="card-img-top">
+                    <div id="cardsbody">
+                        
+                        <p class="card-text"id="contentcard">MOH-RI-RUH REED DIFFUSER
+                            <span style="text-align: center; font-size: small;color: rgb(125, 120, 120);">
+                                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.850.00</span></p>
+                            
+                        
+                    </div>
+                </div>
+              </div>
+          </div>
+        
+             
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" id="cardbuttonprev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id="cardbuttonnext">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div style="text-align: center;">
+        <button class="view-all-btn">VIEW ALL</button>
+      </div>
+      <br><hr><br>
+
+
+     <!-- Footer -->
+<footer class="text-center text-lg-start" style="background-color:#063970; color: white;">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between">
+  
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold">
+            <i class="fas fa-gem me-3"></i>About ISAK
+          </h6>
+          <p>
+            We are a fragrance house dedicated to the creation of unrivalled niche Indian artisanal 
+            fragrances of rare notes and blends, backed with the family experience of over a century and a half.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">
+            SHOP
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Perfumes</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Attars</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Home Fragrances</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Multi-perfume Packs</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">
+            Quick Links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">About</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Contact</a>
+          </p>
+        
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> +91 7571836190</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            isak@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> Mon-Fri | 10:00 AM - 06:30 PM (IST)</p>
+         
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-reset fw-bold" href="#">Aarya-40</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    <script type="text/javascript">
+      var nav = document.querySelector('nav');
+
+      window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 100) {
+          nav.classList.add('bg-dark', 'shadow');
+        } else {
+          nav.classList.remove('bg-dark', 'shadow')
+        }
+      });
+    </script>
+
+    </body>
+</html>

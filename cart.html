@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <h1>Your Shopping Cart</h1>
+  <!-- Display cart items here -->
+  <div id="cart-items"></div>
+  <hr>
+  <h3>Total: <span id="total-price"></span></h3>
+  <button id="pay-now-btn">Pay Now</button>
+
+  <!-- Link back to the main page -->
+  <a href="makeperfume.html">Continue Shopping</a>
+
+  <!-- JavaScript to handle cart functionality -->
+  <script type="text/javascript">
+   // Sample data for cart items (replace with your actual data)
+const cartItems = [
+  { name: 'Product 1', quantity: 2, price: 10 },
+  { name: 'Product 2', quantity: 1, price: 20 },
+  // Add more items as needed
+];
+
+// Function to display cart items on the cart page
+function displayCartItems() {
+  const cartContainer = document.getElementById('cart-items');
+  let cartHTML = '';
+
+  cartItems.forEach(item => {
+    cartHTML += `<div>${item.name} - Quantity: ${item.quantity} - Price: ${item.price}</div>`;
+  });
+
+  cartContainer.innerHTML = cartHTML;
+
+  // Calculate and display total price
+  const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Function to handle adding items to the cart
+function addToCart(name, quantity, price) {
+  cartItems.push({ name, quantity, price });
+}
+
+// Event listener for Add to Cart button
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+addToCartBtn.addEventListener('click', () => {
+  const productName = 'MAKE YOUR OWN PERFUME KIT'; // Assuming product name
+  const productPrice = 5530; // Assuming product price
+  const quantity = parseInt(document.getElementById('quantity-input').value);
+  addToCart(productName, quantity, productPrice);
+  displayCartItems(); // Update cart display
+});
+
+// Event listener for Pay Now button
+const payNowBtn = document.getElementById('pay-now-btn');
+payNowBtn.addEventListener('click', () => {
+  // Redirect to the cart page
+  window.location.href = 'cart.html';
+});
+
+  </script>
+</body>
+</html>
